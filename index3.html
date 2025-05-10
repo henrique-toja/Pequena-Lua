@@ -5,102 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pequena Lua</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7fafc;
-      color: #333;
-    }
-    header {
-      background-color: #ffccdd;
-      text-align: center;
-      padding: 2rem;
-    }
-    header img {
-      max-width: 200px;
-    }
-    nav {
-      text-align: center;
-      margin: 1rem 0;
-    }
-    nav button {
-      margin: 0.5rem;
-      padding: 0.7rem 1.2rem;
-      border: none;
-      background-color: #ffc0cb;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    section {
-      padding: 2rem;
-    }
-    .section-img {
-      width: 100%;
-      max-width: 600px;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 8px;
-    }
-    .faq-section {
-      background-color: #fff0f5;
-      padding: 2rem;
-      margin-top: 2rem;
-      border-radius: 8px;
+    :root {
+      --primary: #ffe066;      /* Amarelo Neutro */
+      --primary-dark: #ffd000;
+      --menino: #6ec1e4;      /* Azul Menino */
+      --menino-dark: #2596be;
+      --menina: #ff72b6;      /* Rosa Menina */
+      --menina-dark: #e91e63;
+      --: 8px;
     }
     .faq-item {
       margin-bottom: 1rem;
     }
     .faq-question {
       font-weight: bold;
+      color: var(--primary-dark);
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #ffe6f0;
-      margin-top: 2rem;
+      background-color: var(--primary);
       font-size: 0.9rem;
+      color: var(--primary-dark);
+      transition: background 0.2s, color 0.2s;
+      margin-top: 2rem;
+    }
+    /* Tema Menino */
+    body.tema-menino {
+      --primary: #6ec1e4;
+      --primary-dark: #2596be;
+      --bg: #e0f7ff;
+    }
+    body.tema-menino .faq-section {
+      background-color: #e6f7ff;
+    }
+    body.tema-menino footer {
+      color: #2596be;
+    }
+    /* Tema Menina */
+    body.tema-menina {
+      --primary: #ff72b6;
+      --primary-dark: #e91e63;
+      --bg: #ffe0f0;
+    }
+    body.tema-menina .faq-section {
+      background-color: #fff0f5;
+    }
+    body.tema-menina footer {
+      color: #e91e63;
+    }
+    /* Responsive */
+    @media (max-width:600px){
+      section {padding: 1rem;}
     }
   </style>
   <script>
     function mudarTema(tema) {
+      document.body.classList.remove('tema-menino', 'tema-menina');
+      var btns = document.querySelectorAll('nav button');
+      btns.forEach(btn => btn.classList.remove('active'));
       if (tema === 'menino') {
-        document.body.style.backgroundColor = '#e0f7ff';
+        document.body.classList.add('tema-menino');
+        btns[2].classList.add('active');
       } else if (tema === 'menina') {
-        document.body.style.backgroundColor = '#ffe0f0';
+        document.body.classList.add('tema-menina');
+        btns[0].classList.add('active');
       } else {
-        document.body.style.backgroundColor = '#f7fafc';
+        // Neutro
+        btns[1].classList.add('active');
       }
     }
+    window.onload = function() { mudarTema('neutro'); };
   </script>
 </head>
 <body>
-
   <header>
-    <img src="https://images.unsplash.com/photo-1600431521340-491eca880813?auto=format&fit=crop&w=600&q=80" alt="Logo Pequena Lua">
+    <img src="logo.png" alt="Logo Pequena Lua">
     <h1>Pequena Lua</h1>
     <p>Amor que cresce com seu bebê</p>
   </header>
-
   <nav>
-    <button onclick="mudarTema('menino')">Tema Menino</button>
-    <button onclick="mudarTema('menina')">Tema Menina</button>
-    <button onclick="mudarTema('default')">Tema Neutro</button>
+    <button onclick="mudarTema('menina')">Menina</button>
+    <button onclick="mudarTema('neutro')">Neutro</button>
+    <button onclick="mudarTema('menino')">Menino</button>
   </nav>
-
   <section>
     <h2>Roupinhas para Bebês</h2>
     <p>Descubra uma seleção encantadora de roupinhas confortáveis, seguras e lindas para bebês de 0 a 24 meses.</p>
     <img class="section-img" src="https://images.pexels.com/photos/3662666/pexels-photo-3662666.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Roupinhas para Bebês">
   </section>
-
   <section>
     <h2>Conforto e Qualidade</h2>
     <p>Nossos tecidos são escolhidos com carinho para oferecer o máximo conforto e segurança para os pequenos.</p>
     <img class="section-img" src="https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tecidos Confortáveis para Bebês">
   </section>
-
   <section class="faq-section">
     <h2>Dúvidas Frequentes</h2>
     <div class="faq-item">
@@ -116,10 +114,8 @@
       <div class="faq-answer">Sim, enviamos para todo o território nacional com frete calculado na finalização da compra.</div>
     </div>
   </section>
-
   <footer>
     Pequena Lua © 2025 — Amor que cresce com seu bebê.
   </footer>
-
 </body>
 </html>
