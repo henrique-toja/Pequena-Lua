@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pequena Lua - Assinatura de Roupas de Bebê Sustentável</title>
   <meta name="description" content="Brechó Infantil por Assinatura. Roupinhas limpas, lindas e sustentáveis, entregues todo mês. Seu bebê cresce, o guarda-roupa acompanha!"/>
-  <meta name="theme-color" content="#7b50c7" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <meta name="theme-color" content="#820ad1" />
   <style>
     :root {
-      --primary: #7b50c7; /* Neutro: Roxo */
-      --primary-dark: #5e3a9d;
-      --accent: #e91e63; /* Menina: Rosa */
-      --accent-dark: #ad1651;
-      --blue: #4a90e2; /* Menino: Azul */
-      --blue-dark: #2a5da5;
+      /* Neutro - Roxo Nubank */
+      --primary: #820ad1;
+      --primary-dark: #5c068c;
+      --accent: #ff72b6; /* Rosa menina */
+      --accent-dark: #e91e63;
+      --blue: #2b8be0;   /* Azul menino */
+      --blue-dark: #1b5fa7;
       --bg: #f7fafc;
       --white: #fff;
       --text: #2d3748;
@@ -40,14 +40,14 @@
       margin-bottom: .6rem;
     }
     header h1 {
-      font-size: 2rem;
-      color: var(--primary-dark);
+      font-size: 2.1rem;
+      color: var(--primary);
       margin: 0;
       letter-spacing: 1.5px;
       font-weight: 800;
     }
     header .slogan {
-      color: var(--accent);
+      color: var(--primary-dark);
       font-size: 1.09rem;
       font-weight: 500;
       margin-bottom: .2rem;
@@ -58,8 +58,6 @@
       margin: .3rem 0 0 0;
       font-size: 1.01rem;
     }
-
-    /* Botões de seleção de tema */
     .theme-switcher {
       display: flex;
       justify-content: center;
@@ -76,12 +74,10 @@
       color: var(--white);
       transition: background .2s, transform .2s;
     }
-    .theme-btn.neutro { background: var(--primary); }
-    .theme-btn.menina { background: var(--accent); }
-    .theme-btn.menino { background: var(--blue); }
+    .theme-btn.neutro   { background: var(--primary);}
+    .theme-btn.menina   { background: var(--accent);}
+    .theme-btn.menino   { background: var(--blue);}
     .theme-btn:hover { transform: scale(1.05); opacity: 0.9; }
-
-    /* Seção de planos */
     .planos-section { 
       background: var(--bg); 
       border-radius: 30px; 
@@ -92,7 +88,7 @@
       color: var(--text);
     }
     .planos-titulo { 
-      color: var(--primary-dark); 
+      color: var(--primary); 
       font-size: 2.2rem; 
       font-weight: 700; 
       text-align: center;
@@ -137,6 +133,7 @@
       transition: box-shadow 0.2s, border 0.2s; 
       color: var(--text);
     }
+    .plano-card h3 { color: var(--primary-dark); }
     .preco-profissional {
       margin: 1.7rem 0 0.5rem 0; 
       text-align: center;
@@ -151,7 +148,7 @@
     }
     .preco-total { 
       font-size: 1.1rem; 
-      color: var(--accent); 
+      color: var(--primary); 
       margin-top: 0.3rem; 
       font-weight: 500; 
       display: block;
@@ -172,33 +169,25 @@
     }
     .btn-primary:hover { background: var(--primary-dark); color: var(--white); }
 
-    /* Footer e WhatsApp */
-    .whatsapp-float-btn {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      z-index: 1100;
-      background: #25d366;
-      border-radius: 50%;
-      width: 58px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: box-shadow .2s, background .2s;
-    }
-    .whatsapp-float-btn:hover { background: var(--accent); }
+    /* Footer: degrade azul-esquerda para roxo-centro para rosa-direita */
     .footer-pequenalua {
-      background: linear-gradient(90deg, #b2e0f7 30%, #e9a2d9 90%);
-      color: #7b50c7;
+      background: linear-gradient(90deg, #2b8be0 0%, #820ad1 48%, #ff72b6 100%);
+      color: var(--white);
       text-align: center;
       padding: 1.6rem 1rem 1.1rem 1rem;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 500;
       border-top-left-radius: 18px;
       border-top-right-radius: 18px;
       margin-top: 3.5rem;
       letter-spacing: .1px;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width:700px){
+      .footer-pequenalua {font-size:0.97rem;}
     }
   </style>
 </head>
@@ -240,14 +229,23 @@
     function mudarTema(tipo) {
       const root = document.documentElement;
       if (tipo === 'neutro') {
-        root.style.setProperty('--primary', '#7b50c7');
-        root.style.setProperty('--primary-dark', '#5e3a9d');
+        root.style.setProperty('--primary', '#820ad1');
+        root.style.setProperty('--primary-dark', '#5c068c');
       } else if (tipo === 'menina') {
-        root.style.setProperty('--primary', '#e91e63');
-        root.style.setProperty('--primary-dark', '#ad1651');
+        root.style.setProperty('--primary', '#ff72b6');
+        root.style.setProperty('--primary-dark', '#e91e63');
       } else if (tipo === 'menino') {
-        root.style.setProperty('--primary', '#4a90e2');
-        root.style.setProperty('--primary-dark', '#2a5da5');
+        root.style.setProperty('--primary', '#2b8be0');
+        root.style.setProperty('--primary-dark', '#1b5fa7');
+      }
+      // atualiza as cores do footer (degrade)
+      const footer = document.querySelector('.footer-pequenalua');
+      if (tipo === 'neutro') {
+        footer.style.background = "linear-gradient(90deg, #2b8be0 0%, #820ad1 48%, #ff72b6 100%)";
+      } else if (tipo === 'menina') {
+        footer.style.background = "linear-gradient(90deg, #ffd6ed 0%, #ff72b6 50%, #ffbada 100%)";
+      } else if (tipo === 'menino') {
+        footer.style.background = "linear-gradient(90deg, #2b8be0 0%, #6bc7ff 60%, #dceeff 100%)";
       }
     }
 
