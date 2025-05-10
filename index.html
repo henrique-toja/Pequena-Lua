@@ -3,55 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pequena Lua - Assinaturas de Roupas de Bebê</title>
+  <title>Pequena Lua - Assinatura de Roupas de Bebê Sustentável</title>
+  <meta name="description" content="Brechó Infantil por Assinatura. Roupinhas limpas, lindas e sustentáveis, entregues todo mês. Seu bebê cresce, o guarda-roupa acompanha!"/>
+  <meta name="theme-color" content="#48BB78" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
+    :root {
+      --primary: #48BB78;
+      --primary-dark: #2e7d32;
+      --accent: #e91e63;
+      --accent-dark: #ad1651;
+      --bg: #f7fafc;
+      --white: #fff;
+      --text: #2d3748;
+      --shadow: 0 2px 14px #0001;
+      --radius: 20px;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #333;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       padding: 0;
+      min-height: 100vh;
     }
     header {
-      background-color: #fff;
-      padding: 1rem;
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 2rem 1rem 1.2rem 1rem;
     }
     header img {
-      height: 70px;
-      margin-bottom: 0.5rem;
+      height: 68px;
+      margin-bottom: .6rem;
     }
     header h1 {
-      color: #e91e63;
       font-size: 2rem;
+      color: var(--primary-dark);
       margin: 0;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
     }
     header .slogan {
-      font-size: 1.05rem;
-      color: #ad1651;
-      letter-spacing: 0.6px;
-      margin-bottom: 0.3rem;
+      color: var(--accent);
+      font-size: 1.09rem;
       font-weight: 500;
+      margin-bottom: .2rem;
+      letter-spacing: .4px;
     }
     header p {
-      color: #999;
-      margin-top: .3rem;
-      font-size: 1rem;
+      color: #888;
+      margin: .3rem 0 0 0;
+      font-size: 1.01rem;
     }
+
+    /* Persuasivo */
     .persuasivo-bar {
       max-width: 700px;
       margin: 2.2rem auto 1.2rem auto;
-      background: #fff;
-      border-radius: 14px;
+      background: var(--white);
+      border-radius: var(--radius);
       padding: 2.2rem 1rem 1.4rem 1rem;
-      box-shadow: 0 2px 14px #0001;
+      box-shadow: var(--shadow);
       text-align: center;
     }
     .persuasivo-bar h2 {
-      color: #e91e63;
+      color: var(--accent);
       font-size: 1.3rem;
       margin-bottom: 1rem;
       font-weight: 700;
@@ -67,142 +84,192 @@
       margin-bottom: 0.7rem;
       line-height: 1.6;
     }
-    .assinatura-bar {
-      max-width: 700px;
-      margin: 1.2rem auto 1.5rem auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem 1rem 1.2rem 1rem;
-      box-shadow: 0 2px 12px #0001;
-      text-align: center;
-    }
-    .assinatura-bar label {
-      font-weight: bold;
-      font-size: 1.09rem;
-      color: #e91e63;
-      margin-bottom: .5rem;
-      display: block;
-    }
-    .nivel-slider {
-      width: 100%;
-      accent-color: #e91e63;
-      margin: 0.5rem 0 0 0;
-    }
-    .nivel-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-      font-size: 0.96rem;
-      color: #e91e63;
-      font-weight: 500;
-    }
-    .assinatura-periodo-btns {
-      margin: 1.5rem 0 .5rem 0;
-    }
-    .periodo-btn {
-      background: #fff;
-      color: #e91e63;
-      border: 2px solid #e91e63;
-      border-radius: 20px;
-      padding: 0.5rem 1.4rem;
-      font-weight: bold;
-      margin: 0 0.5rem;
-      cursor: pointer;
-      transition: background .2s, color .2s;
-    }
-    .periodo-btn.active,
-    .periodo-btn:hover {
-      background: #e91e63;
-      color: #fff;
-    }
-    .swiper-container {
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto 2.5rem auto;
-      padding: 2rem 0 3rem 0;
-    }
-    .swiper-slide {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      text-align: center;
-      padding: 1.3rem 1rem 1.7rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    .plan-title {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      color: #e91e63;
-      font-weight: 600;
-    }
-    .plan-desc {
-      color: #666;
-      font-size: 0.97rem;
-      margin-bottom: 0.7rem;
-      min-height: 38px;
-    }
-    .plan-vantagens {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 0.7rem;
-      margin-top: 0.3rem;
-      min-height: 36px;
-    }
     .entrega-bar {
-      color: #e91e63;
+      color: var(--primary-dark);
       font-weight: 600;
       margin: 1.3rem 0 0.7rem 0;
       font-size: 1.1rem;
       text-align: center;
     }
-    .plan-price {
-      font-size: 1.2rem;
-      color: #e91e63;
-      font-weight: bold;
+
+    /* Nova seção de planos */
+    .planos-section { 
+      background: var(--bg); 
+      border-radius: 30px; 
+      box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10); 
+      padding: 3rem 1rem 5rem 1rem; 
+      max-width: 1200px; 
+      margin: 3rem auto; 
+      color: var(--text);
     }
-    .btn-subscribe {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.6rem 1.3rem;
-      background-color: #e91e63;
-      color: #fff;
-      border: none;
-      border-radius: 22px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 2px 8px #0001;
-      transition: background 0.2s;
+    .planos-titulo { 
+      color: var(--primary-dark); 
+      font-size: 2.2rem; 
+      font-weight: 700; 
+      text-align: center;
+      margin-bottom: .7rem; 
     }
-    .btn-subscribe:hover {
-      background: #ad1651;
+    .planos-descricao { 
+      color: var(--text); 
+      font-size: 1.14rem; 
+      margin-bottom: 2.2rem; 
+      text-align: center;
     }
-    .swiper-pagination-bullet-active {
-      background: #e91e63 !important;
+    .nivel-container { 
+      background: var(--white); 
+      border-radius: 18px; 
+      padding: 1.7rem 1.5rem 1.5rem 1.5rem; 
+      margin-bottom: 1.8rem; 
+      box-shadow: var(--shadow); 
+      max-width: 530px; 
+      margin-left: auto; 
+      margin-right: auto;
     }
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #e91e63;
+    .nivel-titulos { 
+      display: flex; 
+      justify-content: space-between; 
+      margin-bottom: 0.7rem; 
+      margin-top: 0.2rem; 
+      width: 100%;
     }
-    @media (max-width: 900px) {
-      .persuasivo-bar,
-      .assinatura-bar { max-width: 98vw; }
-      .swiper-container { max-width: 98vw; }
+    .nivel-titulo-item { 
+      flex: 1 1 0; 
+      text-align: center; 
+      font-size: 1.08rem; 
+      font-weight: 700; 
+      color: var(--primary-dark); 
+      min-width: 0; 
+      padding: 0 4px; 
+      white-space: normal; 
+      display: -webkit-box; 
+      -webkit-line-clamp: 2; 
+      -webkit-box-orient: vertical; 
+      overflow: hidden;
+      letter-spacing:0.01em;
     }
-    @media (max-width: 600px) {
-      .persuasivo-bar { padding: 1.1rem 0.5rem 1rem 0.5rem; }
-      .assinatura-bar { padding: 1.3rem 0.5rem 1rem 0.5rem; }
-      .swiper-slide img { height: 120px; }
-      .plan-title { font-size: 1.05rem;}
+    .nivel-slider-area { 
+      position: relative; 
+      width: 100%; 
+      margin-bottom: 1.2rem; 
+      margin-top: 0.1rem; 
+      height: 40px;
+    }
+    .nivel-slider-bg { 
+      position: absolute; 
+      left: 0; 
+      right: 0; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      height: 10px; 
+      border-radius: 6px; 
+      background: linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%); 
+      z-index: 1; 
+      width: 100%; 
+      pointer-events: none;
+    }
+    .nivel-slider-fill { 
+      position: absolute; 
+      left: 0; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      height: 10px; 
+      border-radius: 6px 0 0 6px; 
+      background: linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%); 
+      z-index: 2; 
+      pointer-events: none; 
+      transition: width .3s, background .3s;
+    }
+    .nivel-slider { 
+      width: 100%; 
+      height: 40px; 
+      background: transparent; 
+      outline: none; 
+      appearance: none; 
+      position: absolute; 
+      left: 0; 
+      top: 0; 
+      z-index: 4; 
+      margin: 0; 
+      cursor: pointer;
+    }
+    .nivel-slider::-webkit-slider-thumb { 
+      appearance: none; 
+      width: 28px; 
+      height: 28px; 
+      border-radius: 50%; 
+      background: #fff; 
+      border: 3px solid var(--thumb-border, #48BB78); 
+      box-shadow: 0 2px 6px #d9f8ec80; 
+      transition: border .2s; 
+      cursor: pointer; 
+      position: relative; 
+      z-index: 5;
+    }
+    .nivel-slider:focus::-webkit-slider-thumb { border: 3px solid #FFD600;}
+    .nivel-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--thumb-border, #48BB78);}
+    .nivel-slider:focus::-moz-range-thumb { border: 3px solid #FFD600;}
+    .nivel-slider::-ms-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--thumb-border, #48BB78);}
+    .nivel-slider::-webkit-slider-runnable-track { height: 10px; background: transparent;}
+    .nivel-slider::-ms-fill-lower, .nivel-slider::-ms-fill-upper { background: transparent;}
+    .slider-markers { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); width: 100%; height: 0; z-index: 10; pointer-events: none;}
+    .slider-dot { position: absolute; width: 14px; height: 14px; background: #222; border-radius: 50%; top: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px #fff; border: 2px solid #222; pointer-events: none; z-index: 11;}
+    .nivel-labels { margin-top: 1.1rem; font-size: 1.08rem; color: var(--primary-dark); font-weight: 500; text-align: center;}
+    .plano-btn { padding: 0.65rem 1.7rem; margin: 0 0.5rem; background: var(--primary); border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: var(--white); font-size: 1rem; transition: background .2s, color .2s;}
+    .plano-btn.active, .plano-btn:hover { background: var(--primary-dark); color: var(--white);}
+    .carousel-container { position: relative; width: 100%; overflow: hidden; margin: 0 auto; max-width: 1000px; background: var(--white); border-radius: 22px; box-shadow: 0 2px 16px #c4e3d733; padding: 2.2rem 0 1.7rem 0; color: var(--text);}
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(.4,0,.2,1); min-height: 370px; will-change: transform;}
+    .plano-card { min-width: 320px; max-width: 350px; margin: 0 1.1rem; background: var(--white); border-radius: 22px; padding: 2rem 1.1rem 2.2rem 1.1rem; box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.13); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; flex-shrink: 0; user-select: none; border: 2.5px solid var(--primary); position: relative; animation: fadeIn .6s; transition: box-shadow 0.2s, border 0.2s; color: var(--text);}
+    .plano-card:hover { box-shadow: 0 12px 42px 0 rgba(44, 62, 80, 0.18); border: 2.5px solid var(--accent);}
+    .plano-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin-bottom: 1.2rem; box-shadow: 0 2px 10px var(--primary); border: 1.5px solid var(--primary);}
+    .plano-card h3 { color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 700;}
+    .preco-profissional { margin: 1.7rem 0 0.5rem 0; text-align: center;}
+    .preco-mensal { font-size: 2.1rem; font-weight: 800; color: var(--primary-dark); display:inline-block; line-height: 1.05; letter-spacing: -0.5px;}
+    .preco-total { font-size: 1.10rem; color: #444; margin-top: .33em; font-weight: 500; display: block;}
+    .preco-obs { display: block; margin-top: 0.34em; font-size: 0.92rem; color: #888; font-weight: 400; letter-spacing: 0.1px;}
+    .btn-primary { background: var(--primary); color: var(--white); padding: 0.75rem 2.2rem; border: none; border-radius: 25px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s, color .2s; margin-top: 1.9rem;}
+    .btn-primary:hover { background: var(--primary-dark); color: var(--white);}
+    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: var(--primary); color: var(--white); border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 2rem; cursor: pointer; outline: none; z-index: 2; opacity: 0.92; display: flex; align-items: center; justify-content: center; transition: background .2s, color .2s;}
+    .carousel-arrow:active, .carousel-arrow:hover { background: var(--primary-dark); color: var(--white);}
+    .carousel-arrow.left { left: 1rem;}
+    .carousel-arrow.right { right: 1rem;}
+    @media (max-width: 1000px) { .carousel-container { max-width: 700px;} .plano-card { min-width: 260px; max-width: 320px;} .nivel-titulo-item { font-size: 0.98rem; } }
+    @media (max-width: 768px) { .carousel-container { max-width: 95vw;} .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;} .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;} .planos-titulo { font-size: 1.3rem;} .nivel-titulo-item { font-size: 0.92rem; } }
+    @keyframes fadeIn { from { opacity: 0.3; transform: translateY(22px);} to { opacity: 1; transform: translateY(0);} }
+
+    /* Footer e WhatsApp */
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1100;
+      background: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 4px 18px #9fd4f555, 0 1.5px 0 0 #fff inset;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow .2s, background .2s;
+    }
+    .whatsapp-float-btn:hover {
+      background: var(--accent);
+      box-shadow: 0 6px 18px #d0aaff77, 0 1.5px 0 0 #fff inset;
+    }
+    .footer-pequenalua {
+      background: linear-gradient(90deg, #b2e0f7 30%, #e9a2d9 90%);
+      color: #7b50c7;
+      text-align: center;
+      padding: 1.6rem 1rem 1.1rem 1rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      margin-top: 3.5rem;
+      letter-spacing: .1px;
+    }
+    @media (max-width:700px){
+      .footer-pequenalua {font-size:0.97rem;}
     }
   </style>
 </head>
@@ -210,8 +277,8 @@
   <header>
     <img src="logo.png" alt="Logo Pequena Lua" />
     <h1>Pequena Lua</h1>
-    <div class="slogan">Sustentabilidade, carinho e economia: o brechó infantil que cresce junto com seu bebê.</div>
-    <p>Assinaturas de Roupas de Bebê</p>
+    <div class="slogan">Assinatura de roupas para bebês - Brechó Infantil Sustentável</div>
+    <p>Seu bebê cresce, o guarda-roupa acompanha!</p>
   </header>
 
   <div class="persuasivo-bar">
@@ -226,132 +293,167 @@
     <div class="entrega-bar">Assine e receba em casa, em qualquer lugar do Brasil!</div>
   </div>
 
-  <div class="assinatura-bar">
-    <label for="nivelRoupinhas">
-      Quantas roupinhas deseja receber por mês?
-    </label>
-    <input type="range" id="nivelRoupinhas" min="1" max="3" value="1" class="nivel-slider">
-    <div class="nivel-labels">
-      <span>6 peças</span>
-      <span>12 peças</span>
-      <span>18 peças</span>
+  <!-- SEÇÃO DE PLANOS NOVA -->
+  <section class="planos-section" id="planos">
+    <h2 class="planos-titulo">
+      Planos de Assinatura: escolha o melhor para seu bebê!
+    </h2>
+    <p class="planos-descricao">
+      Selecione o perfil de uso, o período e veja valores por quantidade de peças.
+    </p>
+    <div class="nivel-container">
+      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;">
+        Quantas peças por mês seu bebê precisa?
+      </label>
+      <div class="nivel-titulos">
+        <span class="nivel-titulo-item">6 peças<br>(troca básica)</span>
+        <span class="nivel-titulo-item">12 peças<br>(mais conforto)</span>
+        <span class="nivel-titulo-item">18 peças<br>(roupas à vontade)</span>
+      </div>
+      <div class="nivel-slider-area">
+        <div class="nivel-slider-bg"></div>
+        <div class="nivel-slider-fill" id="nivelSliderFill"></div>
+        <input type="range" id="nivelPecas" min="1" max="3" value="1" class="nivel-slider">
+        <div class="slider-markers">
+          <span class="slider-dot" style="left:0%;"></span>
+          <span class="slider-dot" style="left:50%;"></span>
+          <span class="slider-dot" style="left:100%;"></span>
+        </div>
+      </div>
+      <div class="nivel-labels" id="descricaoNivel"></div>
     </div>
-    <div class="assinatura-periodo-btns">
-      <button class="periodo-btn active" onclick="setPeriodo('mensal')">Mensal</button>
-      <button class="periodo-btn" onclick="setPeriodo('trimestral')">Trimestral</button>
-      <button class="periodo-btn" onclick="setPeriodo('anual')">Anual</button>
+    <div style="margin: 2rem 0; text-align:center;">
+      <button class="plano-btn active" onclick="setFrequencia('semestral')">Semestral</button>
+      <button class="plano-btn" onclick="setFrequencia('trimestral')">Trimestral</button>
+      <button class="plano-btn" onclick="setFrequencia('mensal')">Mensal</button>
     </div>
-  </div>
+    <div class="carousel-container" id="carouselContainer">
+      <button class="carousel-arrow left" id="carouselPrevBtn">&#8592;</button>
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="carousel-arrow right" id="carouselNextBtn">&#8594;</button>
+    </div>
+  </section>
 
-  <div class="swiper-container">
-    <div class="swiper-wrapper" id="planosWrapper">
-      <!-- Slides serão gerados dinamicamente -->
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+  <!-- Botão Flutuante WhatsApp -->
+  <a href="https://wa.me/51989698086" target="_blank" class="whatsapp-float-btn" title="Fale pelo WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.2 19.3c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1c-.2.2-.7.9-.8 1.1-.1.2-.3.2-.6.1-1.6-.6-2.8-2.2-3-2.6-.2-.3 0-.4.1-.6.1-.1.2-.3.3-.5.1-.2.1-.4 0-.5 0-.1-.6-1.6-.8-2.2-.2-.6-.4-.5-.6-.5-.2 0-.4 0-.6 0s-.5.1-.7.3c-.2.2-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.2 3.4 5.8 4.6.8.3 1.4.5 1.9.6.8.1 1.5.1 2.1.1.6 0 1.9-.2 2.7-1.2.8-1 1-1 1-2.3 0-.2-.2-.3-.5-.4z" fill="#fff"/></svg>
+  </a>
 
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <footer class="footer-pequenalua">
+    &copy; 2025 Pequena Lua Brechó Infantil. Todos os direitos reservados.
+  </footer>
+
+  <!-- JS interatividade da nova seção de planos -->
   <script>
-    // Configurações dos planos fixos
+    // Configuração dos planos
+    let frequencia = 'semestral';
+    const pecasOptions = [6,12,18];
     const planos = [
-      {
-        nome: "Plano Recém-Nascido",
-        desc: "Ideal para os primeiros meses. Peças delicadas e confortáveis para o início da vida.",
-        vantagens: "Perfeito para recém-mamães que querem praticidade e aconchego nos primeiros dias.",
-        img: "https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?auto=compress&w=600&q=80"
-      },
-      {
-        nome: "Plano Bebê Ativo",
-        desc: "Perfeito para bebês que estão começando a engatinhar e explorar o mundo.",
-        vantagens: "Mais roupas para acompanhar cada pulo, cada brincadeira e cada descoberta.",
-        img: "https://images.pexels.com/photos/3933274/pexels-photo-3933274.jpeg?auto=compress&w=600&q=80"
-      },
-      {
-        nome: "Plano Crescimento",
-        desc: "Acompanhe o crescimento do seu bebê com roupas flexíveis e resistentes.",
-        vantagens: "Troque as roupinhas conforme o crescimento — sem acúmulo e sem stress.",
-        img: "https://images.pexels.com/photos/3770585/pexels-photo-3770585.jpeg?auto=compress&w=600&q=80"
-      }
+      { nome:"Recém-Nascido", img:"https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?auto=compress&w=600&q=80"},
+      { nome:"Bebê Ativo", img:"https://images.pexels.com/photos/3933274/pexels-photo-3933274.jpeg?auto=compress&w=600&q=80"},
+      { nome:"Crescimento", img:"https://images.pexels.com/photos/3770585/pexels-photo-3770585.jpeg?auto=compress&w=600&q=80"}
     ];
-
-    // Tabela de preços base por plano/nível (quantidade de peças)
-    const precosBase = [
+    // Preço base por plano/quantidade de peças
+    const tabelaPrecos = [
       [99, 159, 199],     // Recém-Nascido: 6, 12, 18 peças
       [129, 189, 229],    // Bebê Ativo: 6, 12, 18 peças
       [149, 209, 259]     // Crescimento: 6, 12, 18 peças
     ];
-
-    // Fatores de desconto por período
+    // Fatores de desconto por frequência
     const desconto = {
       mensal: 1,
-      trimestral: 0.93, // ~7% desconto
-      anual: 0.85       // ~15% desconto
+      trimestral: 0.93,
+      semestral: 0.85
     };
-
     let nivel = 1; // 1=6 peças, 2=12 peças, 3=18 peças
-    let periodo = 'mensal';
-    let swiper = null;
+    let currentIndex = 0;
 
-    function setPeriodo(tipo) {
-      periodo = tipo;
-      document.querySelectorAll('.periodo-btn').forEach(btn => {
+    function setFrequencia(tipo) {
+      frequencia = tipo;
+      document.querySelectorAll('.plano-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.toLowerCase().includes(tipo)) {
-          btn.classList.add('active');
-        }
+        if (btn.textContent.toLowerCase().includes(tipo)) btn.classList.add('active');
       });
-      renderSlides();
+      atualizarCarousel();
     }
-
-    function renderSlides() {
-      const wrapper = document.getElementById('planosWrapper');
-      wrapper.innerHTML = '';
+    function atualizarDescricaoNivel() {
+      let descs = [
+        "Ideal para quem precisa de apenas o básico de trocas mensais.",
+        "Mais opções para conforto no dia a dia do bebê.",
+        "Roupinhas sempre à vontade para quem gosta de variedade!"
+      ];
+      document.getElementById("descricaoNivel").innerHTML = descs[nivel-1];
+    }
+    function atualizarSliderPreenchimento() {
+      const slider = document.getElementById("nivelPecas");
+      const fill = document.getElementById("nivelSliderFill");
+      const min = parseInt(slider.min, 10), max = parseInt(slider.max, 10), val = parseInt(slider.value, 10);
+      const percent = ((val - min) / (max - min));
+      fill.style.width = `calc(${percent * 100}% - ${percent * 28}px + 14px)`;
+      let thumbBorder;
+      if (val === 1) thumbBorder = "#48BB78";
+      else if (val === 2) thumbBorder = "#FFD600";
+      else thumbBorder = "#E53935";
+      slider.style.setProperty('--thumb-border', thumbBorder);
+    }
+    function formatarPreco(valor) {
+      return valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+    }
+    function atualizarCarousel() {
+      const carouselTrack = document.getElementById('carouselTrack');
+      carouselTrack.innerHTML = '';
       planos.forEach((plano, i) => {
-        const preco = Math.round(precosBase[i][nivel-1] * desconto[periodo]);
-        const periodoLabel = (periodo === 'mensal') ? 'mês' : (periodo === 'trimestral') ? 'mês (trimestre)' : 'mês (anual)';
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide';
-        slide.innerHTML = `
+        const preco = Math.round(tabelaPrecos[i][nivel-1] * desconto[frequencia]);
+        const periodoLabel = frequencia.charAt(0).toUpperCase() + frequencia.slice(1);
+        const pecas = pecasOptions[nivel-1];
+        const mensagem = `Olá! Tenho interesse no Plano ${plano.nome} para meu bebê.\n${pecas} peças por mês - Período: ${periodoLabel}.\nComo faço para assinar?`;
+        const linkWhats = `https://wa.me/51989698086?text=${encodeURIComponent(mensagem)}`;
+        const card = document.createElement('div');
+        card.className = 'plano-card';
+        card.innerHTML = `
           <img src="${plano.img}" alt="${plano.nome}">
-          <h2 class="plan-title">${plano.nome}</h2>
-          <div class="plan-desc">${plano.desc}</div>
-          <div class="plan-vantagens">${plano.vantagens}</div>
-          <div class="plan-price">R$ ${preco},00/${periodoLabel}</div>
-          <a href="https://loja.infinitepay.io/hdlft/ouo6874-teste-1?plano=${encodeURIComponent(plano.nome)}&pecas=${[6,12,18][nivel-1]}&periodo=${periodo}" target="_blank" class="btn-subscribe">Assinar agora</a>
+          <h3>${plano.nome}</h3>
+          <div class="preco-profissional">
+            <span class="preco-mensal">${formatarPreco(preco)}/mês</span>
+            <span class="preco-total">Com ${pecas} peças por mês</span>
+            <span class="preco-obs">* sem fidelidade, cancele quando quiser!</span>
+          </div>
+          <a href="${linkWhats}" class="btn-primary" target="_blank">Assinar agora</a>
         `;
-        wrapper.appendChild(slide);
+        carouselTrack.appendChild(card);
       });
-      if(window.swiper) {
-        swiper.update();
-        swiper.slideTo(0);
-      }
+      moveCarousel(currentIndex);
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('nivelRoupinhas').addEventListener('input', function(e){
+    function moveCarousel(index) {
+      const carouselTrack = document.getElementById('carouselTrack');
+      const total = planos.length;
+      let visible = 3;
+      if(window.innerWidth < 1000 && window.innerWidth >= 768) visible = 2;
+      if(window.innerWidth < 768) visible = 1;
+      if(index < 0) index = 0;
+      if(index > total - visible) index = total - visible;
+      currentIndex = index;
+      const card = carouselTrack.querySelector('.plano-card');
+      if(card) {
+        const cardWidth = card.offsetWidth + 32;
+        carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+      }
+      document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
+      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (total - visible)) ? "hidden" : "visible";
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      atualizarDescricaoNivel();
+      atualizarSliderPreenchimento();
+      atualizarCarousel();
+      document.getElementById("nivelPecas").addEventListener('input', function() {
         nivel = parseInt(this.value,10);
-        renderSlides();
+        atualizarDescricaoNivel();
+        atualizarSliderPreenchimento();
+        atualizarCarousel();
       });
-      renderSlides();
-      swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          700: { slidesPerView: 2 },
-          1100: { slidesPerView: 3 }
-        }
-      });
+      document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
+      document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
+      window.addEventListener('resize', () => moveCarousel(currentIndex));
     });
   </script>
 </body>
