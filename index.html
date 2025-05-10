@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pequena Lua - Assinaturas de Roupas de Bebê</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      color: #e91e63;
+      font-size: 2rem;
+      margin: 0;
+    }
+    header p {
+      color: #999;
+      margin-top: .3rem;
+    }
+    .assinatura-bar {
+      max-width: 700px;
+      margin: 2.5rem auto 1.5rem auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1rem 1.2rem 1rem;
+      box-shadow: 0 2px 12px #0001;
+      text-align: center;
+    }
+    .assinatura-bar label {
+      font-weight: bold;
+      font-size: 1.09rem;
+      color: #e91e63;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .nivel-slider {
+      width: 100%;
+      accent-color: #e91e63;
+      margin: 0.5rem 0 0 0;
+    }
+    .nivel-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.96rem;
+      color: #e91e63;
+      font-weight: 500;
+    }
+    .assinatura-periodo-btns {
+      margin: 1.5rem 0 .5rem 0;
+    }
+    .periodo-btn {
+      background: #fff;
+      color: #e91e63;
+      border: 2px solid #e91e63;
+      border-radius: 20px;
+      padding: 0.5rem 1.4rem;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .periodo-btn.active,
+    .periodo-btn:hover {
+      background: #e91e63;
+      color: #fff;
+    }
+    .swiper-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 2.5rem auto;
+      padding: 2rem 0 3rem 0;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 1.3rem 1rem 1.7rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .plan-title {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #e91e63;
+    }
+    .plan-desc {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      min-height: 38px;
+    }
+    .plan-price {
+      font-size: 1.2rem;
+      color: #e91e63;
+      font-weight: bold;
+    }
+    .btn-subscribe {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.3rem;
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 22px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px #0001;
+      transition: background 0.2s;
+    }
+    .btn-subscribe:hover {
+      background: #ad1651;
+    }
+    .swiper-pagination-bullet-active {
+      background: #e91e63 !important;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #e91e63;
+    }
+    @media (max-width: 900px) {
+      .assinatura-bar { max-width: 98vw; }
+      .swiper-container { max-width: 98vw; }
+    }
+    @media (max-width: 600px) {
+      .assinatura-bar { padding: 1.3rem 0.5rem 1rem 0.5rem; }
+      .swiper-slide img { height: 120px; }
+      .plan-title { font-size: 1.05rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Logo Pequena Lua" />
+    <h1>Pequena Lua</h1>
+    <p>Assinaturas de Roupas de Bebê</p>
+  </header>
+
+  <div class="assinatura-bar">
+    <label for="nivelRoupinhas">
+      Quantas roupinhas deseja receber por mês?
+    </label>
+    <input type="range" id="nivelRoupinhas" min="1" max="3" value="1" class="nivel-slider">
+    <div class="nivel-labels">
+      <span>6 peças</span>
+      <span>12 peças</span>
+      <span>18 peças</span>
+    </div>
+    <div class="assinatura-periodo-btns">
+      <button class="periodo-btn active" onclick="setPeriodo('mensal')">Mensal</button>
+      <button class="periodo-btn" onclick="setPeriodo('trimestral')">Trimestral</button>
+      <button class="periodo-btn" onclick="setPeriodo('anual')">Anual</button>
+    </div>
+  </div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="planosWrapper">
+      <!-- Slides serão gerados dinamicamente -->
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Configurações dos planos fixos
+    const planos = [
+      {
+        nome: "Plano Recém-Nascido",
+        desc: "Ideal para os primeiros meses. Peças delicadas e confortáveis para o início da vida.",
+        img: "https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?auto=compress&w=600&q=80"
+      },
+      {
+        nome: "Plano Bebê Ativo",
+        desc: "Perfeito para bebês que estão começando a engatinhar e explorar o mundo.",
+        img: "https://images.pexels.com/photos/3933274/pexels-photo-3933274.jpeg?auto=compress&w=600&q=80"
+      },
+      {
+        nome: "Plano Crescimento",
+        desc: "Acompanhe o crescimento do seu bebê com roupas flexíveis e resistentes.",
+        img: "https://images.pexels.com/photos/3770585/pexels-photo-3770585.jpeg?auto=compress&w=600&q=80"
+      }
+    ];
+
+    // Tabela de preços base por plano/nível (quantidade de peças)
+    const precosBase = [
+      [99, 159, 199],     // Recém-Nascido: 6, 12, 18 peças
+      [129, 189, 229],    // Bebê Ativo: 6, 12, 18 peças
+      [149, 209, 259]     // Crescimento: 6, 12, 18 peças
+    ];
+
+    // Fatores de desconto por período
+    const desconto = {
+      mensal: 1,
+      trimestral: 0.93, // ~7% desconto
+      anual: 0.85       // ~15% desconto
+    };
+
+    let nivel = 1; // 1=6 peças, 2=12 peças, 3=18 peças
+    let periodo = 'mensal';
+    let swiper = null;
+
+    function setPeriodo(tipo) {
+      periodo = tipo;
+      document.querySelectorAll('.periodo-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(tipo)) {
+          btn.classList.add('active');
+        }
+      });
+      renderSlides();
+    }
+
+    function renderSlides() {
+      const wrapper = document.getElementById('planosWrapper');
+      wrapper.innerHTML = '';
+      planos.forEach((plano, i) => {
+        const preco = Math.round(precosBase[i][nivel-1] * desconto[periodo]);
+        const periodoLabel = (periodo === 'mensal') ? 'mês' : (periodo === 'trimestral') ? 'mês (trimestre)' : 'mês (anual)';
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+          <img src="${plano.img}" alt="${plano.nome}">
+          <h2 class="plan-title">${plano.nome}</h2>
+          <div class="plan-desc">${plano.desc}</div>
+          <div class="plan-price">R$ ${preco},00/${periodoLabel}</div>
+          <a href="https://wa.me/550000000000?text=Quero%20assinar%20o%20${encodeURIComponent(plano.nome)}%20com%20${[6,12,18][nivel-1]}%20peças%20(${periodo})" class="btn-subscribe">Assinar</a>
+        `;
+        wrapper.appendChild(slide);
+      });
+      if(window.swiper) {
+        swiper.update();
+        swiper.slideTo(0);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('nivelRoupinhas').addEventListener('input', function(e){
+        nivel = parseInt(this.value,10);
+        renderSlides();
+      });
+      renderSlides();
+      swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          700: { slidesPerView: 2 },
+          1100: { slidesPerView: 3 }
+        }
+      });
+    });
+  </script>
+</body>
+  </html>
