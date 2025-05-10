@@ -20,21 +20,56 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     header img {
-      height: 60px;
+      height: 70px;
       margin-bottom: 0.5rem;
     }
     header h1 {
       color: #e91e63;
       font-size: 2rem;
       margin: 0;
+      letter-spacing: 2px;
+    }
+    header .slogan {
+      font-size: 1.05rem;
+      color: #ad1651;
+      letter-spacing: 0.6px;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
     }
     header p {
       color: #999;
       margin-top: .3rem;
+      font-size: 1rem;
+    }
+    .persuasivo-bar {
+      max-width: 700px;
+      margin: 2.2rem auto 1.2rem auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 2.2rem 1rem 1.4rem 1rem;
+      box-shadow: 0 2px 14px #0001;
+      text-align: center;
+    }
+    .persuasivo-bar h2 {
+      color: #e91e63;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .persuasivo-bar ul {
+      color: #444;
+      margin: 1.2rem auto 0 auto;
+      text-align: left;
+      max-width: 480px;
+      font-size: 1.01rem;
+    }
+    .persuasivo-bar ul li {
+      margin-bottom: 0.7rem;
+      line-height: 1.6;
     }
     .assinatura-bar {
       max-width: 700px;
-      margin: 2.5rem auto 1.5rem auto;
+      margin: 1.2rem auto 1.5rem auto;
       background: #fff;
       border-radius: 12px;
       padding: 2rem 1rem 1.2rem 1rem;
@@ -107,12 +142,27 @@
       font-size: 1.2rem;
       margin: 0.5rem 0;
       color: #e91e63;
+      font-weight: 600;
     }
     .plan-desc {
       color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+      font-size: 0.97rem;
+      margin-bottom: 0.7rem;
       min-height: 38px;
+    }
+    .plan-vantagens {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 0.7rem;
+      margin-top: 0.3rem;
+      min-height: 36px;
+    }
+    .entrega-bar {
+      color: #e91e63;
+      font-weight: 600;
+      margin: 1.3rem 0 0.7rem 0;
+      font-size: 1.1rem;
+      text-align: center;
     }
     .plan-price {
       font-size: 1.2rem;
@@ -144,10 +194,12 @@
       color: #e91e63;
     }
     @media (max-width: 900px) {
+      .persuasivo-bar,
       .assinatura-bar { max-width: 98vw; }
       .swiper-container { max-width: 98vw; }
     }
     @media (max-width: 600px) {
+      .persuasivo-bar { padding: 1.1rem 0.5rem 1rem 0.5rem; }
       .assinatura-bar { padding: 1.3rem 0.5rem 1rem 0.5rem; }
       .swiper-slide img { height: 120px; }
       .plan-title { font-size: 1.05rem;}
@@ -156,10 +208,23 @@
 </head>
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Logo Pequena Lua" />
+    <img src="logo.png" alt="Logo Pequena Lua" />
     <h1>Pequena Lua</h1>
+    <div class="slogan">Sustentabilidade, carinho e economia: o brechó infantil que cresce junto com seu bebê.</div>
     <p>Assinaturas de Roupas de Bebê</p>
   </header>
+
+  <div class="persuasivo-bar">
+    <h2>Por que assinar a Pequena Lua é melhor do que comprar roupas novas para seu bebê?</h2>
+    <ul>
+      <li><b>Economia inteligente:</b> Assinando você gasta menos do que comprando roupas novas todo mês — roupas de qualidade por um preço fixo e justo!</li>
+      <li><b>Praticidade e liberdade:</b> Esqueça idas a lojas e compras apressadas. Todo mês, peças limpas, higienizadas e lindas chegam na sua casa.</li>
+      <li><b>Seu bebê cresce, o guarda-roupa acompanha:</b> Roupas trocadas conforme o crescimento, sem desperdício e sem acúmulo.</li>
+      <li><b>Consciência ecológica:</b> Você faz parte de um ciclo sustentável, dando novas histórias para cada roupinha.</li>
+      <li><b>Brasil inteiro:</b> Entregamos em todas as regiões, com frete rápido e seguro.</li>
+    </ul>
+    <div class="entrega-bar">Assine e receba em casa, em qualquer lugar do Brasil!</div>
+  </div>
 
   <div class="assinatura-bar">
     <label for="nivelRoupinhas">
@@ -194,16 +259,19 @@
       {
         nome: "Plano Recém-Nascido",
         desc: "Ideal para os primeiros meses. Peças delicadas e confortáveis para o início da vida.",
+        vantagens: "Perfeito para recém-mamães que querem praticidade e aconchego nos primeiros dias.",
         img: "https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?auto=compress&w=600&q=80"
       },
       {
         nome: "Plano Bebê Ativo",
         desc: "Perfeito para bebês que estão começando a engatinhar e explorar o mundo.",
+        vantagens: "Mais roupas para acompanhar cada pulo, cada brincadeira e cada descoberta.",
         img: "https://images.pexels.com/photos/3933274/pexels-photo-3933274.jpeg?auto=compress&w=600&q=80"
       },
       {
         nome: "Plano Crescimento",
         desc: "Acompanhe o crescimento do seu bebê com roupas flexíveis e resistentes.",
+        vantagens: "Troque as roupinhas conforme o crescimento — sem acúmulo e sem stress.",
         img: "https://images.pexels.com/photos/3770585/pexels-photo-3770585.jpeg?auto=compress&w=600&q=80"
       }
     ];
@@ -249,8 +317,9 @@
           <img src="${plano.img}" alt="${plano.nome}">
           <h2 class="plan-title">${plano.nome}</h2>
           <div class="plan-desc">${plano.desc}</div>
+          <div class="plan-vantagens">${plano.vantagens}</div>
           <div class="plan-price">R$ ${preco},00/${periodoLabel}</div>
-          <a href="https://wa.me/550000000000?text=Quero%20assinar%20o%20${encodeURIComponent(plano.nome)}%20com%20${[6,12,18][nivel-1]}%20peças%20(${periodo})" class="btn-subscribe">Assinar</a>
+          <a href="https://loja.infinitepay.io/hdlft/ouo6874-teste-1?plano=${encodeURIComponent(plano.nome)}&pecas=${[6,12,18][nivel-1]}&periodo=${periodo}" target="_blank" class="btn-subscribe">Assinar agora</a>
         `;
         wrapper.appendChild(slide);
       });
@@ -286,4 +355,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
