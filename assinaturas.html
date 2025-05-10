@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos Pequena Lua</title>
+  <meta name="description" content="Planos de assinatura do brechó Pequena Lua">
+  <style>
+    :root {
+      --primary: #ffe066;      /* Amarelo bebê */
+      --primary-dark: #ffd000;
+      --accent: #ffb6d5;       /* Rosa bebê */
+      --accent-dark: #e572a3;
+      --blue: #b6e3ff;         /* Azul bebê */
+      --blue-dark: #72b7e6;
+      --white: #fff;
+      --text: #2d3748;
+      --shadow: 0 2px 14px #0001;
+      --radius: 20px;
+    }
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .planos-section { 
+      background: var(--white); 
+      border-radius: 30px; 
+      box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10); 
+      padding: 3rem 1rem 3rem 1rem; 
+      max-width: 1200px; 
+      margin: 3rem auto; 
+      color: var(--text);
+    }
+    .planos-titulo { 
+      color: var(--accent-dark); 
+      font-size: 2.2rem; 
+      font-weight: 700; 
+      text-align: center;
+      margin-bottom: .7rem; 
+    }
+    .planos-descricao { 
+      color: var(--text); 
+      font-size: ; 
+      margin-bottom: 2.2rem; 
+      text-align: center;
+    }
+    .nivel-container { 
+      background: var(--blue); 
+      border-radius: 18px; 
+      padding: 1.7rem 1.5rem; 
+      margin-bottom: 2rem; 
+      box-shadow: var(--shadow); 
+      max-width: 530px; 
+      margin-left: auto; 
+      margin-right: auto;
+    }
+    .nivel-label { display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;}
+    .nivel-titulos { display: flex; justify-content: space-between; margin-bottom: 0.7rem; margin-top: 0.2rem;}
+    .nivel-titulo-item { flex: 1 1 0; text-align: center; font-size: 1.08rem; font-weight: 700; color: var(--accent-dark);}
+    .nivel-slider-area { position: relative; width: 100%; margin-bottom: 1.2rem; margin-top: 0.1rem; height: 40px;}
+    .nivel-slider-bg { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 10px; border-radius: 6px; background: linear-gradient(90deg, #ffb6d5 0%, #ffe066 50%, #b6e3ff 100%); z-index: 1;}
+    .nivel-slider-fill { position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 10px; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, #ffb6d5 0%, #ffe066 50%, #b6e3ff 100%); z-index: 2; pointer-events: none; transition: width .3s, background .3s;}
+    .nivel-slider { width: 100%; height: 40px; background: transparent; outline: none; appearance: none; position: absolute; left: 0; top: 0; z-index: 4; margin: 0; cursor: pointer;}
+    .nivel-slider::-webkit-slider-thumb { appearance: none; width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--accent-dark); box-shadow: 0 2px 6px #ffd6ed50; transition: border .2s; cursor: pointer;}
+    .nivel-slider:focus::-webkit-slider-thumb { border: 3px solid var(--primary-dark);}
+    .nivel-slider::-webkit-slider-runnable-track { height: 10px; background: transparent;}
+    .slider-markers { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); width: 100%; height: 0; z-index: 10;}
+    .slider-dot { position: absolute; width: 14px; height: 14px; background: var(--white); border-radius: 50%; top: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px var(--accent); border: 2px solid var(--accent-dark);}
+    .nivel-labels { margin-top: 1.1rem; font-size: 1.08rem; color: var(--accent-dark); font-weight: 500; text-align: center;}
+    .plano-btns {margin: 2rem 0; text-align:center;}
+    .plano-btn { padding: 0.65rem 1.7rem; margin: 0 0.5rem; background: var(--primary); border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: var(--accent-dark); font-size: 1rem; transition: background .2s, color .2s;}
+    .plano-btn.active, .plano-btn:hover { background: var(--accent-dark); color: var(--white);}
+    .carousel-container { position: relative; width: 100%; overflow: hidden; margin: 0 auto; max-width: 1000px; background: var(--white); border-radius: 22px; box-shadow: 0 2px 16px #ffd6ed55; padding: 2.2rem 0 1.7rem 0;}
+    .carousel-track { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;}
+    .plano-card { min-width: 260px; max-width: 320px; background: var(--blue); border-radius:.2rem 1.1rem; box-shadow: 0 8px 32px 0 #ffd6ed55; display: flex; flex-direction: column; align-items: center; border: 2.5px solid var(--accent); margin:0 1rem; color:var(--text);}
+    .plano-card h3 { color: var(--accent-dark); font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 700;}
+    .plano-card .pecas { color: var(--blue-dark); font-weight: 600; margin-bottom: 0.7rem;}
+    .preco-mensal { font-size: 2.1rem; font-weight: 800; color: var(--primary-dark); display:inline-block; line-height: 1.05;}
+    .preco-total { font-size: 1.10rem; color:-top: .33em; font-weight: 500; display: block;}
+    .preco-obs { display: block; margin-top: 0.34em; font-size: 0.92rem; color: #888; font-weight: 400;}
+    .btn-primary { background: var(--accent-dark); color: var(--white); padding: 0.75rem 2.2rem; border: none; border-radius: font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 1.3rem;}
+    .btn-primary:hover { background: var(--primary-dark);}
+    @media (max-width: 1000px) { .carousel95vw;} .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;} }
+  </style>
+</head>
+<body>
+<section class="planos-section" id="planos">
+  <h2 class="planos-titulo">Plan-titulo-item">5 peças</span>
+      <span class="nivel-titulo-item">10 peças</span>
+      <span class="nivel-titulo-item">15 peças</span>
+    </div>
+    <div class="nivel-slider-area">
+      <div class="nivel-slider-bg"></div>
+      <div class="nivel-slider-fill" id="nivelSliderFill"></div>
+      <input type="range" id="qtdPecas" min="1" max="3" value="1" class="nivel-slider">
+      <div class="slider-markers">
+        <span class="slider-dot" style="left:0%;"></span>
+        <span class="slider-dot" style="left:50%;"></span>
+        <span class="slider-dot" style="left:100%;"></span>
+      </div>
+    </div>
+    <div class="nivel-labels" id="descricaoNivel"></div>
+  </div>
+
+  <div class="plano-btns">
+    <button class="plano-btn active" onclick="setPeriodo('mensal')">Mensal</button>
+    <button class="plano-btn" onclick="setPeriodo('semestral')">Semestral</button>
+    <button class="plano-btn" onclick="setPeriodo('anual')">Anual</button>
+  </div>
+
+  <div class="carousel-container" id="carouselContainer">
+    <div class="carousel-track"="carouselTrack"></div>
+  </div>
+</section>
+<script>
+  // Configurações dos planos
+  const PLANO_LABELS = [
+    {nome: "Basic", obs: "Essencial para o dia a dia"},
+    {nome: "Plus", obs: "Mais variedade e estilo"},
+    {nome: "Premium", obs: "Seleção completa e exclusiva"}
+  ];
+  const QTD_PECAS = [5, 10, 15];
+
+  // Cálculo dos preços
+  const BASE = 100; // R$100,00
+  const PLANO_MULT = [1, 1.15, 1.15 * 1.15]; // Basic, Plus, Premium
+  const PERIODO_LABEL = {mensal: "Mensal", semestral: "Semestral", anual: "Anual"};
+  const PERIODO_MULT = {mensal: 1, semestral: 1.15, anual: 1.15 * 1.15};
+
+  let periodo = 'mensal';
+
+  function").value) - 1;
+    document.getElementById("descricaoNivel").innerHTML =
+      `<div style="margin-top:10px;">
+        <strong style="color:#e572a3;">${QTD_PECAS[nivel]} peças por mês</strong>
+        <div style="font-size:0.98rem; color:#666; margin-top:4px;">Escolha quantas peças você quer receber em casa!</div>
+      </div>`;
+  }
+
+  function atualizarSliderPreenchimento() {
+    const slider = document.getElementById("qtdPecas");
+    const fill = document.getElementById("nivelSliderFill");
+    const min = parseInt(slider.min, 10);
+    const max = parseInt(slider.max, 10);
+    const val = parseInt(slider.value, 10);
+    const percent = ((val - min) / (max - min));
+    fill.style.width = `calc(${percent * 100}% - ${percent * 28}px + 14px)(tipo) {
+    periodo = tipo;
+    document.querySelectorAll('.plano-btn').forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.textContent.toLowerCase().includes(tipo)) {
+        btn.classList.add('active');
+      }
+    });
+    atualizarCarousel();
+  }
+
+  function format', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  }
+
+  function atualizarCarousel() {
+    const nivel = parseInt(document.getElementById("qtdPecas").value) - 1;
+    const carouselTrack = document.getElementById('carouselTrack');
+    carouselTrack.innerHTML = '';
+    PLANO_LABELS.forEach((plano, i) => {
+      // Cálculo: Base + 15% por plano + 15% por período
+      const precoBase = BASE * PLANO_MULT[i];
+      const precoPeriodo = precoBase * PERIODO_MULT[periodo];
+      const precoFinal = Math.round(precoPeriodo);
+
+      const card = document.createElement('div');
+      card.className = 'plano-card';
+      card.innerHTML = `
+        <h3>${plano.nome}</h3>
+        <div class="pecas">${QTD_PECAS[nivel]} peças/mês</div>
+        <div class="preco-mensal">${formatarPreco(precoFinal)}/mês</div>
+        <div class="preco-total">Plano ${PERIODO_LABEL[periodo]}</div>
+        <div class="preco-obs">${plano.obs}</div>
+        <a href="https://loja.infinitepay.io/hdlft/ouo6874-teste-1" class="btn-primary" target="_blank">Assinar agora</a>
+      `;
+      carouselTrack.appendChild(card);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    atualizarDescricaoNivel();
+    atualizarSliderPreenchimento();
+    atualizarCarousel();
+    document.getElementById("qtdPecas").addEventListener('input', function() {
+      atualizarDescricaoNivel();
+      atualizarSliderPreenchimento();
+      atualizarCarousel();
+    });
+  });
+</script>
+</body>
+</html>
