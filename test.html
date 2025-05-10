@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pequena Lua - Assinatura de Roupas de Bebê Sustentável</title>
+  <meta name="description" content="Brechó Infantil por Assinatura. Roupinhas limpas, lindas e sustentáveis, entregues todo mês. Seu bebê cresce, o guarda-roupa acompanha!"/>
+  <meta name="theme-color" content="#820ad1" />
+  <style>
+    :root {
+      --primary: #820ad1;
+      --primary-dark: #5c068c;
+      --accent: #ff72b6;
+      --accent-dark: #e91e63;
+      --blue: #2b8be0;
+      --blue-dark: #1b5fa7;
+      --bg: #f7fafc;
+      --white: #fff;
+      --text: #2d3748;
+      --shadow: 0 2px 14px #0001;
+      --radius: 20px;
+    }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; min-height: 100vh; }
+    header { background: var(--white); box-shadow: 0 2px 4px rgba(0,0,0,0.08); text-align: center; padding: 2rem 1rem 1.2rem 1rem; }
+    header img { height: 68px; margin-bottom: .6rem; }
+    header h1 { font-size: 2.1rem; var(--primary); margin: 0; letter-spacing: 1.5px; font-weight: 800; }
+    header .slogan { color: var(--primary-dark); font-size: 1.09rem; font-weight: 500; margin-bottom: .2rem; letter-spacing: .4px; }
+    header p { color: #888; margin: .3rem 0 0 0; font-size: 1.01rem; }
+    .theme-switcher { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0 0; }
+    .theme-btn { padding: 0.5rem 1.5rem; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: bold; cursor: pointer; color: var(--white); transition: background .2s, transform .2s; }
+    .theme-btn.neutro   { background: var(--primary);}
+    .theme-btn.menina   { background: var(--accent);}
+    .theme-btn.menino   { background: var(--blue);}
+    .theme-btn:hover { transform: scale(1.05); opacity: 0.9; }
+    section { margin-top: 2.5rem; }
+    .persuasivo-bar { max-width: 700px; margin: 2.2rem auto 1.2rem auto; background: var(--white); border-radius: var(--radius); padding: 2.2rem 1rem 1.4rem 1rem; box-shadow: var(--shadow); text-align: center; }
+    .persuasivo-bar h2 { color: var(--primary); font-size: 1.3rem; margin-bottom: 1rem; font-weight: 700; }
+    .persuasivo-bar ul { color: #444; margin: 1.2rem auto 0 auto; text-align: left; max-width: 480px; font-size: 1.01rem; }
+    .persuasivo-bar ul li { margin-bottom: 0.7rem; line-height: 1.6; }
+    .entrega-bar { color: var(--primary-dark); font-weight: 600; margin: 1.3rem 0 0.7rem 0; font-size: 1.1rem; text-align: center; }
+    /* COMO FUNCIONA */
+    .funciona-section {background: var(--white); border-radius: 24px; box-shadow: var(--shadow); max-width: 900px; margin: 2rem auto; padding: 2.3rem 1rem;}
+    .funciona-title {text-align: center; color: var(--primary-dark); font-size: 1.35rem; font-weight: bold; margin-bottom: 2rem;}
+    .funciona-steps { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .funciona-step { flex: 1 1 180px; min-width: 180px; max-width: 200px; background: var(--bg); border-radius: 15px; box-shadow: 0 1px 6px #0001; text-align: center; padding: 1rem 0.5rem;}
+    .funciona-step img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 1rem;}
+    .funciona-step h3 { font-size: 1.08rem; margin: 0.7rem 0 0.5rem;}
+    .funciona-step p { font-size: 0.99rem; color: #555;}
+    /* VANTAGENS */
+    .vantagens-section {max-width: 900px; margin: 3rem auto 0 auto; padding: 2.3rem 1rem;}
+    .vantagens-title {text-align: center; color: var(--primary-dark); font-size: 1.2rem; font-weight: bold; margin-bottom: 2rem;}
+    .vantagens-list {display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;}
+    .vantagem {flex: 1 1 190px; background: var(--white); border-radius: 15px; box-shadow: 0 1px 6px #0001; text-align: center; padding: 1.1rem 0.5rem;}
+    .vantagem img { width: 44px; margin-bottom: 1rem;}
+    .vantagem h4 { margin: 0.7rem 0 0.3rem; color: var(--primary);}
+    .vantagem p { font-size: 0.98rem; color: #555;}
+    /* DEPOIMENTOS */
+    .depoimentos-section {max-width: 900px; margin: 3rem auto 0 auto; background: var(--white); border-radius: 24px; box-shadow: var(--shadow); padding: 2.3rem 1rem;}
+    .depoimentos-title {text-align: center; color: var(--primary-dark); font-size: 1.2rem; font-weight: bold; margin-bottom: 2rem;}
+    .depoimentos-list {display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;}
+    .depoimento {flex:1 1 230px; min-width:220px; background: var(--bg); border-radius: 15px; box-shadow: 0 1px 6px #0001; text-align: center; padding: 1.1rem 0.7rem;}
+    .depoimento img {width: 52px; height:52px; border-radius:50%; object-fit:cover; margin-bottom:.7rem;}
+    .depoimento p {font-size:0.98rem; color:#555;}
+    .depoimento strong {color:var(--primary-dark);}
+    /* FAQ */
+    .faq-section {max-width: 900px; margin: 3rem auto 0 auto; background: var(--white); border-radius: 24px; box-shadow: var(--shadow); padding: 2.3rem 1rem;}
+    .faq-title {text-align:center; color:var(--primary-dark); font-size:1.2rem; font-weight:bold; margin-bottom:2rem;}
+    .faq-list {max-width:600px; margin:0 auto;}
+    .faq-item {margin-bottom:1.2rem;}
+    .faq-q {cursor:pointer; font-weight:bold; color:var(--primary); font-size:1.04rem;}
+    .faq-a {display:none; margin-top:0.3rem; color:#555;}
+    .faq-item.active .faq-a {display:block;}
+    /* CONTATO */
+    .contato-section {max-width: 900px; margin: 3rem auto 1.5rem auto; background: var(--white); border-radius: 24px; box-shadow: var(--shadow); padding: 2.3rem 1rem;}
+    .contato-title {text-align:center; color:var(--primary-dark); font-size:1.2rem; font-weight:bold; margin-bottom:2rem;}
+    .contato-btns {display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;}
+    .contato-btn {background:var(--primary);color:var(--white);padding:1rem 2rem;border-radius:14px;font-weight:bold;font-size:1.13rem;text-decoration:none;transition:background .2s;}
+    .contato-btn:hover {background:var(--primary-dark);}
+    /* Footer */
+    .footer-pequenalua {
+      background: linear-gradient(90deg>Consciência ecológica:</b> Você faz parte de um ciclo sustentável, dando novas histórias para cada roupinha.</li>
+      <li><b>Brasil inteiro:</b> Entregamos em todas as regiões, com frete rápido e seguro.</li>
+    </ul>
+    <div class="entrega-bar">Assine e receba em casa, em qualquer lugar do Brasil!</div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="funciona-section">
+    <div class="funciona-title">Como Funciona?</div>
+    <div class="funciona-steps">
+      <div class="funciona-step">
+        <img src="img/escolha.svg" alt="Escolha o plano" />
+        <h3>Escolha seu plano</h3>
+        <p>Selecione a quantidade de peças e o perfil do seu bebê: recém-nascido, ativo ou em crescimento.</p>
+      </div>
+      <div class="funciona-step">
+        <img src="img/receba.svg" alt="Receba em casa" />
+        <h3>Receba em casa</h3>
+        <p>Receba suas roupinhas limpas, higienizadas e embaladas, em poucos dias, no endereço que preferir.</p>
+      </div>
+      <div class="funciona-step">
+        <img src="img/troque.svg" alt="Troque conforme o crescimento" />
+        <h3>Troque quando precisar</h3>
+        <p>Seu bebê cresceu? Solicite a troca! Envie as peças de volta e receba novas, sempre do tamanho certo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE PLANOS -->
+  <section class="planos-section" id="planos">
+    <h2 class="planos-titulo">
+      Planos de Assinatura: escolha o melhor para seu bebê!
+    </h2>
+    <p class="planos-descricao">
+      Selecione o perfil de uso, o período e veja valores por quantidade de peças.
+    </p>
+    <div class="carousel-container" id="carouselContainer">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </section>
+
+  <!-- VANTAGENS -->
+  <section class="vantagens-section">
+    <div class="vantagens-title">Vantagens Pequena Lua</div>
+    <div class="vantagens-list">
+      <div class="vantagem">
+        <img src="img/economia.svg" alt="Economia" />
+        <h4>Economia Real</h4>
+        <p>Pague menos por mês e evite acúmulo de roupas que logo não servem mais.</p>
+      </div>
+      <div class="vantagem">
+        <img src="img/sustentavel.svg" alt="Sustentável" />
+        <h4>Consciência Sustentável</h4>
+        <p>Reduza o impacto ambiental dando novo uso para cada peça.</p>
+      </div>
+      <div class="vantagem">
+        <img src="img/qualidade.svg" alt="Qualidade" />
+        <h4>Qualidade Garantida</h4>
+        <p>Roupinhas selecionadas, higienizadas e em ótimo estado, sempre.</p>
+      </div>
+      <div class="vantagem">
+        <img src="img/praticidade.svg" alt="Praticidade" />
+        <h4>Praticidade Total</h4>
+        <p>Receba, use, troque e devolva sem sair de casa. Simples assim!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos-section">
+    <div class="depoimentos-title">O que as famílias dizem</div>
+    <div class="depoimentos-list">
+      <div class="depoimento">
+        <img src="img/mamae1.jpg" alt="Cliente 1">
+        <p>“Adorei a experiência! Prático, econômico e meu bebê sempre arrumadinho!”<br><strong>– Ana, mãe da Beatriz</strong></p>
+      </div>
+      <div class="depoimento">
+        <img src="img/papai2.jpg" alt="Cliente 2">
+        <p>“A cada troca, tudo novinho e cheiroso. Recomendo!”<br><strong>– Carlos, pai do Lucas</strong></p>
+      </div>
+      <div class="depoimento">
+        <img src="img/mamae3.jpg" alt="Cliente 3">
+        <p>“Nunca mais fiquei com pilhas de roupas sem uso.”<br><strong>– Juliana, mãe do Miguel</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-title">Perguntas Frequentes</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Como funciona a troca das roupinhas?</div>
+        <div class="faq-a">Você solicita a troca pelo WhatsApp ou site. Enviamos as novas peças e você devolve as antigas no nosso envelope.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">E se a roupa rasgar ou manchar?</div>
+        <div class="faq-a">Pequenos desgastes estão inclusos. Uso normal não é cobrado. Danos graves podem ser avaliados individualmente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso cancelar quando quiser?</div>
+        <div class="faq-a">Sim! Não há fidelidade, você cancela a qualquer momento, sem multa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato-section">
+    <div class="contato-title">Fale Conosco</div>
+    <div class="contato-btns">
+      <a href="https://wa.me/51989698086" target="_blank" class="contato-btn">WhatsApp</a>
+      <a href="https://www.instagram.com/brechopequenalua" target="_blank" class="contato-btn" style="background:var(--accent);">Instagram</a>
+      <a href="mailto:contato@pequenalua.com.br" class="contato-btn" style="background:var(--blue);">E-mail</a>
+    </div>
+  </section>
+
+  <footer class="footer-pequenalua">
+    &copy; 2025 Pequena Lua Brechó Infantil. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Troca de tema
+    function mudarTema(tipo) {
+      const root = document.documentElement;
+      const footer = document.querySelector('.footer-pequenalua');
+      if (tipo === 'neutro') {
+        root.style.setProperty('--primary', '#820ad1');
+        root.style.setProperty('--primary-dark', '#5c068c');
+        footer.style.background = "linear-gradient(90deg, #2b8be0 0%, #820ad1 48%, #ff72b6 100%)";
+      } else if (tipo === 'menina') {
+        root.style.setProperty('--primary', '#ff72b6');
+        root.style.setProperty('--primary-dark', '#e91e63');
+        footer.style.background = "linear-gradient(90deg, #ffd6ed 0%, #ff72b6 50%, #ffbada 100%)";
+      } else if (tipo === 'menino') {
+        root.style.setProperty('--primary', '#2b8be0');
+        root.style.setProperty('--primary-dark', '#1b5fa7');
+        footer.style.background = "linear-gradient(90deg, #2b8be0 0%, #6bc7ff 60%, #dceeff 100%)";
+      }
+    }
+
+    // Cards de planos (exemplo, personalize valores)
+    document.addEventListener('DOMContentLoaded', () => {
+      const planosMock = [
+        { nome: "Plano Recém-Nascido", precoMensal: 99, precoTotal: 594 },
+        { nome: "Plano Bebê Ativo", precoMensal: 149, precoTotal: 894 },
+        { nome: "Plano Crescimento", precoMensal: 199, precoTotal: 1194 },
+      ];
+      const carouselTrack = document.getElementById('carouselTrack');
+      planosMock.forEach(plano => {
+        const card = document.createElement('div');
+        card.className = 'plano-card';
+        card.innerHTML = `
+          <h3>${plano.nome}</h3>
+          <div class="preco-profissional">
+            <span class="preco-mensal">R$ ${plano.precoMensal}/mês</span>
+            <span class="preco-total">Total: R$ ${plano.precoTotal}</span>
+          </div>
+          <a href="https://wa.me/51989698086?text=Quero%20assinar%20o%20${encodeURIComponent(plano.nome)}" class="btn-primary" target="_blank">Assinar agora</a>
+        `;
+        carouselTrack.appendChild(card);
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
